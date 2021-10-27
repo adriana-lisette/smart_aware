@@ -28,5 +28,3 @@ def data():
     
     return render_template("prediction.html", prediction_text = prediction_text)
 
-if __name__ == "__main__": 
-    app.run()
