@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF 8">
+        <title>Web classifier</title>
+
+    </head>
+    <body>
+        <h1>Web classifier</h1>
+        <form action="/prediction" method="POST">
+            <div>
+                <h3>Please fill the following fields</h3>
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender", placeholder="Gender", required>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="gradeID">Grade ID:</label>
+                <select id="gradeID" name="gradeID", placeholder="gradeID", required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="semester">Semester:</label>
+                <select id="semester" name="semester", placeholder="Semester", required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="raisedHands">Total of raised hands:</label>
+                <input type="number" step="1" name="raisedHands" id="raisedHands" placeholder="# of raised hands" required>  
+            </div>
+            <br>
+            <div>
+                <label for="visitedResources">Total of visitedResources:</label>
+                <input type="number" step="1" name="visitedResources" id="visitedResources" placeholder="# of visited resources" required>  
+            </div>
+            <br>
+            <div>
+                <label for="announcementsView">Amount of viewed announcements: </label>
+                <input type="number" step="1" name="announcementsView" id="announcementsView" placeholder="# of viewed announcements" required>  
+            </div>
+            <br>
+            <div>
+                <label for="discussion">Number of times participating on discussions: </label>
+                <input type="number" step="1" name="discussion" id="discussion" placeholder="# of participation on discussions" required>  
+            </div>
+            <br>
+            <div>
+                <label for="parentParticipating">Parents participation level:</label>
+                <select id="parentParticipating" name="parentParticipating", placeholder="Parents participation", required>
+                    <option value="0">High</option>
+                    <option value="1">Low</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="absenceDays">Total of absence days:</label>
+                <select id="absenceDays" name="absenceDays", placeholder="# of absence days", required>
+                    <option value="0">Under 7</option>
+                    <option value="1">Above 7</option>
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict achievment</button>
+        </form>
+        <br>
+        
+
+    </body>
+
+</html>
