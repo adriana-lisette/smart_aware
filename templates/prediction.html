@@ -3,8 +3,26 @@
     <head>
         <meta charset="UTF 8">
         <title>Web classifier</title>
+        <style>
+            body{
+                background-color:rgba(255, 166, 0, 0.685);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+            .center{
+                position: relative;
+                padding: 50px 50px;
+                background:white;
+                border-radius: 10px;
+                text-align:  center;
+            }
+        </style>
     </head>
     <body>
-        <h3>{{ prediction_text }}</h3>
+        <div class="center">
+            <h3>{{ prediction_text }}</h3>
+        </div>
     </body>
 </html>
