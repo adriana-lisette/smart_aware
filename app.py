@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
-import model
+import pickle 
+
 
 app = Flask(__name__)
 
@@ -20,11 +21,20 @@ def data():
     parentParticipating = info["parentParticipating"]
     absenceDays = info["absenceDays"]
 
-    prediction = model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    def createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays):
+    
+        loadedModel = pickle.load(open('model.pkl', 'rb'))
+        x_predict = np.array([gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays])
+        x_predict = x_predict.reshape(1, -1)
+
+        return loadedModel.predict(x_predict) 
+
+    prediction = createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
     if prediction == 0:
         prediction_text = "Your student shows low achievement"
     elif prediction == 1:
         prediction_text = "Your student shows high achievement"
     
     return render_template("prediction.html", prediction_text = prediction_text)
+
 
