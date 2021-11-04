@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 import pickle 
-
+import numpy as np
 
 app = Flask(__name__)
 
@@ -36,5 +36,3 @@ def data():
         prediction_text = "Your student shows high achievement"
     
     return render_template("prediction.html", prediction_text = prediction_text)
-
-
