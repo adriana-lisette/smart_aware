@@ -8,7 +8,7 @@ def create_html():
     return render_template("index.html")
 
 @app.route("/prediction", methods=['POST'])
-def data():
+def info():
     info = request.form
     gender = info["gender"]
     gradeID = info["gradeID"]
