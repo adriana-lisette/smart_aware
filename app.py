@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import load_model
+import json
 
 app = Flask(__name__)
 
@@ -42,5 +43,8 @@ def data():
     parentParticipating = data["parentParticipating"]
     absenceDays = data["absenceDays"]
 
-
-    return load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    pred_list = prediction.tolist()
+    prediction = json.dumps(pred_list)
+    
+    return prediction
