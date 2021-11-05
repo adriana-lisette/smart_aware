@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import loaded_model
+import load_model
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def data():
     parentParticipating = info["parentParticipating"]
     absenceDays = info["absenceDays"]
  
-    prediction = loaded_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
     if prediction == 0:
         prediction_text = "Your student shows low achievement"
     elif prediction == 1:
@@ -42,6 +42,6 @@ def data():
     parentParticipating = data["parentParticipating"]
     absenceDays = data["absenceDays"]
 
-    prediction = loaded_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
 
     return prediction
