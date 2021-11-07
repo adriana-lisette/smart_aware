@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, render_template
 import load_model
 
@@ -44,4 +45,6 @@ def data():
 
     prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
     predict_num = prediction[1]
-    return predict_num
+    set_predict = {"predcit":predict_num}
+    json_predict = json.dumps(set_predict)
+    return json_predict
