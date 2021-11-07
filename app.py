@@ -1,8 +1,10 @@
 import json
 from flask import Flask, request, render_template
+from flask_cors import CORS, cross_origin
 import load_model
 
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route("/")
 def create_html():
@@ -31,6 +33,7 @@ def info():
 
 
 @app.route("/smart_aware_app", methods=['POST'])
+@cross_origin()
 def data():
     data = request.json
     gender = data["gender"]
