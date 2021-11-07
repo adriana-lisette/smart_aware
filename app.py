@@ -43,5 +43,5 @@ def data():
     absenceDays = data["absenceDays"]
 
     prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
-    
-    return prediction
+    predict_num = prediction[1]
+    return predict_num
