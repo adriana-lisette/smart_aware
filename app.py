@@ -15,7 +15,6 @@ def info():
     info = request.form
     gender = info["gender"]
     gradeID = info["gradeID"]
-    semester = info["semester"]
     raisedHands = info["raisedHands"]
     visitedResources = info["visitedResources"]
     announcementsView = info["announcementsView"]
@@ -23,7 +22,7 @@ def info():
     parentParticipating = info["parentParticipating"]
     absenceDays = info["absenceDays"]
  
-    prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    prediction = load_model.createPrediction(gender, gradeID, raisedHands, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
     if prediction == 0:
         prediction_text = "Your student shows low achievement"
     elif prediction == 1:
@@ -38,7 +37,6 @@ def data():
     data = request.json
     gender = data["gender"]
     gradeID = data["gradeID"]
-    semester = data["semester"]
     raisedHands = data["raisedHands"]
     visitedResources = data["visitedResources"]
     announcementsView = data["announcementsView"]
@@ -46,7 +44,7 @@ def data():
     parentParticipating = data["parentParticipating"]
     absenceDays = data["absenceDays"]
 
-    prediction = load_model.createPrediction(gender, gradeID, raisedHands, semester, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
+    prediction = load_model.createPrediction(gender, gradeID, raisedHands, visitedResources, announcementsView, discussion, parentParticipating, absenceDays)
     predict_num = prediction[1]
     set_predict = {"predict":predict_num}
     json_predict = json.dumps(set_predict)
