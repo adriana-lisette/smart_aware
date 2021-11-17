@@ -8,7 +8,7 @@ cors = CORS(app)
 
 @app.route("/smart_aware_app", methods=['POST'])
 @cross_origin()
-def data():
+def newPrediction():
     data = request.json
     gender = data["gender"]
     gradeID = data["gradeID"]
